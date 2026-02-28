@@ -1,15 +1,15 @@
 ## Analysis Screenshots
 
 ### HTTPS Traffic (TCP Port 443)
-![HTTPS traffic filter](captures/tcp-443-filter.png)
-The majority of captured traffic utilized HTTPS on port 443, 
-confirming encryption enforcement across all web sessions. 
+![HTTPS traffic filter](captures/tcp-443filter.png)
+The majority of captured traffic was HTTPS on port 443, 
+good encryption enforcement across over 20,000 captures. 
 No plaintext HTTP traffic was observed.
 
 ---
 
 ### TCP Handshake Initiation (SYN Packets)
-![SYN packet filter](screenshots/tcp-syn-filter.png)
+![SYN packet filter](captures/tcp-syn-filter.png)
 SYN packets represent the first step of the TCP three-way 
 handshake. Each new connection begins with a SYN from the 
 client, followed by SYN-ACK from the server, then ACK to 
@@ -18,7 +18,7 @@ confirm the session.
 ---
 
 ### UDP Traffic
-![UDP traffic filter](screenshots/udp-filter.png)
+![UDP traffic filter](captures/udp-filter.png)
 158 UDP packets were identified during the capture. UDP is 
 used for latency-sensitive traffic such as DNS queries (port 53),
 NTP clock sync (port 123), and QUIC protocol sessions.
@@ -26,15 +26,15 @@ NTP clock sync (port 123), and QUIC protocol sessions.
 ---
 
 ### Google/YouTube CDN Traffic
-![Google IP filter](screenshots/google-ip-filter.png)
-IP range 173.194.x.x confirmed as Google LLC infrastructure.
+![Google IP filter](captures/google-ip-filter.png) & ![Google IP lookup](captures/google-ip.png)
+IP range 173.194.144.232 confirmed as Google LLC infrastructure.
 Multiple parallel TLS sessions observed — consistent with 
 YouTube CDN behavior delivering content from distributed servers.
 
 ---
 
 ### Third-Party CDN Investigation (OVH - 141.95.155.2)
-![OVH IP filter](screenshots/ovh-ip-filter.png)
+![OVH IP filter](screenshots/ovh-ip-filter.png) & ![OVH IP lookup](captures/ovh-ip-.png) 
 High volume of traffic (4,876 packets) observed to 141.95.155.2,
 identified as OVH SAS — a French cloud hosting provider. 
 Investigated via ipinfo.io. Assessed as legitimate CDN activity,
